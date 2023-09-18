@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class gunController : MonoBehaviour
+public class GunController : MonoBehaviour
 {
     [SerializeField] float damage = 10f;
     [SerializeField] float firerate = 0.1f;
@@ -40,7 +40,7 @@ public class gunController : MonoBehaviour
 
             StartCoroutine(SpawnTrail(trail, hitinfo));
 
-            targetComponent target = hitinfo.transform.GetComponent<targetComponent>();
+            TargetComponent target = hitinfo.transform.GetComponent<TargetComponent>();
 
             if (target != null)
             {

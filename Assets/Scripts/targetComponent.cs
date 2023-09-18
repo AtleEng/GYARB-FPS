@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class targetComponent : MonoBehaviour
+public class TargetComponent : MonoBehaviour
 {
      [SerializeField] public float hp = 50f;
 
