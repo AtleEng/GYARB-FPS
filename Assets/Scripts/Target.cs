@@ -6,6 +6,8 @@ public class Target : MonoBehaviour
 {
     [SerializeField]  float hp = 50f;
 
+    [SerializeField] float distance = 5f; 
+
     float speed = 3.5f;
     public void TakeDamage(float amountdamage)
     {
@@ -23,6 +25,6 @@ public class Target : MonoBehaviour
 
     public void Update()
     {
-        transform.position = new Vector3(Mathf.PingPong(Time.time * speed, 5), transform.position.y, transform.position.z);
+        transform.position = new Vector3(Mathf.PingPong(Time.time * speed, distance), transform.position.y, transform.position.z);
     }
 }
