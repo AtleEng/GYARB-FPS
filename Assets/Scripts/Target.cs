@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    [SerializeField]  float hp = 50f;
+    [SerializeField] float hp = 50f;
 
     [SerializeField] float distance = 5f; 
 
