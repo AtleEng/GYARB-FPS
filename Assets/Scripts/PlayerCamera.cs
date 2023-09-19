@@ -23,6 +23,7 @@ public class PlayerCamera : MonoBehaviour
         oriention.transform.Rotate(Vector3.up * mouseDelta.x * sensitivity);
 
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
     }
     private void OnDrawGizmos()
     {
