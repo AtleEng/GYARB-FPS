@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    [SerializeField]  float hp = 50f;
+    [SerializeField] float hp = 50f;
 
     float speed = 3.5f;
     public void TakeDamage(float amountdamage)
