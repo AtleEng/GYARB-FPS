@@ -4,22 +4,29 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    [Header("Gun stats")]
     [SerializeField] float damage = 10f;
     [SerializeField] float firerate = 0.1f;
     float timeBetweenShoots;
     float range = 1000f;
+
+    [Header("Components")]
     [SerializeField] Camera cam;
+    [SerializeField] Animator animator;
     [SerializeField] Transform bulletSpawnPos;
 
+    [Header("Effects")]
     [SerializeField] ParticleSystem gunflash;
     [SerializeField] ParticleSystem bulletImpact;
-    [SerializeField] Animator animator;
 
+    [Header("BulletTrail")]
+    [SerializeField] float timeActive = 1;
     [SerializeField] TrailRenderer bulletTrail;
+
     void Update()
     {
         timeBetweenShoots += Time.deltaTime;
-        if (Input.GetButtonDown("Fire1") && timeBetweenShoots >= firerate)
+        if (Input.GetButton("Fire1") && timeBetweenShoots >= firerate)
         {
             animator.SetTrigger("ShootsFired");
             gunflash.Play();
@@ -53,7 +60,7 @@ public class Gun : MonoBehaviour
         float time = 0;
         Vector3 startPos = trail.transform.position;
 
-        while (time < 1)
+        while (time < timeActive)
         {
             trail.transform.position = Vector3.Lerp(startPos, hit.point, time);
             time += Time.deltaTime / trail.time;
