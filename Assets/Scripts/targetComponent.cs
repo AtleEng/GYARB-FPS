@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class TargetComponent : MonoBehaviour
 {
-     [SerializeField] public float hp = 50f;
-
+    [SerializeField] public float hp = 50f;
     public void TakeDamage(float amountdamage)
     {
         hp -= amountdamage;

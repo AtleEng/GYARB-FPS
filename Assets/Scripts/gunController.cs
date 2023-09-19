@@ -8,7 +8,6 @@ public class GunController : MonoBehaviour
     [SerializeField] float firerate = 0.1f;
     float timeBetweenShoots;
     float range = 1000f;
-
     [SerializeField] Camera cam;
     [SerializeField] Transform bulletSpawnPos;
 
@@ -46,7 +45,7 @@ public class GunController : MonoBehaviour
             {
                 target.TakeDamage(damage);
             }
-            
+
         }
     }
     //Handle bullet trails

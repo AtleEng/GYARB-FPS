@@ -6,7 +6,6 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] GameObject camHolder;
     [SerializeField] GameObject oriention;
-
     float pitch;
 
     [SerializeField] float sensitivity;
