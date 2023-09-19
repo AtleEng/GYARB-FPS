@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    [SerializeField] float hp = 50f;
+    [SerializeField] int hp = 50;
     [SerializeField] float speed = 3.5f;
     [SerializeField] float length = 10;
-    public void TakeDamage(float amountdamage)
+    public void TakeDamage(int amountdamage)
     {
         hp -= amountdamage;
-        if (hp <= 0f)
+        if (hp <= 0)
         {
             Die();
         }
