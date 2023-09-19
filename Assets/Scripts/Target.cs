@@ -5,8 +5,8 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     [SerializeField] float hp = 50f;
-
-    float speed = 3.5f;
+    [SerializeField] float speed = 3.5f;
+    [SerializeField] float length = 10;
     public void TakeDamage(float amountdamage)
     {
         hp -= amountdamage;
@@ -23,6 +23,6 @@ public class Target : MonoBehaviour
 
     public void Update()
     {
-        transform.position = new Vector3(Mathf.PingPong(Time.time * speed, 5), transform.position.y, transform.position.z);
+        transform.position = new Vector3(-length + Mathf.PingPong(Time.time * speed, length * 2), transform.position.y, transform.position.z);
     }
 }

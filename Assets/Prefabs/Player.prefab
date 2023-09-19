@@ -89,7 +89,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.1
   far clip plane: 1000
   field of view: 90
   orthographic: 0
@@ -386,11 +386,19 @@ PrefabInstance:
     - target: {fileID: 1859809604946426646, guid: ae4d8a84ecd9f254da6c7b05893fc84e, type: 3}
       propertyPath: animator
       value: 
-      objectReference: {fileID: 1949141372258383666}
+      objectReference: {fileID: 0}
+    - target: {fileID: 1859809604946426646, guid: ae4d8a84ecd9f254da6c7b05893fc84e, type: 3}
+      propertyPath: firerate
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 1859809604946426646, guid: ae4d8a84ecd9f254da6c7b05893fc84e, type: 3}
       propertyPath: gunflash
       value: 
       objectReference: {fileID: 1949141372127808077}
+    - target: {fileID: 1859809604946426646, guid: ae4d8a84ecd9f254da6c7b05893fc84e, type: 3}
+      propertyPath: gunRecoil
+      value: 
+      objectReference: {fileID: 747342854}
     - target: {fileID: 1859809604946426646, guid: ae4d8a84ecd9f254da6c7b05893fc84e, type: 3}
       propertyPath: bulletTrail
       value: 
@@ -413,15 +421,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7780543704888675725, guid: ae4d8a84ecd9f254da6c7b05893fc84e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.455
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7780543704888675725, guid: ae4d8a84ecd9f254da6c7b05893fc84e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.339
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7780543704888675725, guid: ae4d8a84ecd9f254da6c7b05893fc84e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.58
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7780543704888675725, guid: ae4d8a84ecd9f254da6c7b05893fc84e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -455,13 +463,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gun
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7780543704439498790, guid: ae4d8a84ecd9f254da6c7b05893fc84e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ae4d8a84ecd9f254da6c7b05893fc84e, type: 3}
 --- !u!4 &1949141371276466543 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7780543705320867451, guid: ae4d8a84ecd9f254da6c7b05893fc84e, type: 3}
   m_PrefabInstance: {fileID: 8139894067069640468}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1949141371641384633 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7780543704888840621, guid: ae4d8a84ecd9f254da6c7b05893fc84e, type: 3}
+  m_PrefabInstance: {fileID: 8139894067069640468}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &747342854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949141371641384633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2cf2aea463527e4fb9630582e3e8ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camTransform: {fileID: 1949141371516835377}
+  recoilX: -0.2
+  recoilY: 0.2
+  recoilZ: 5
+  kickBackZ: 0.2
+  snappiness: 3
+  returnAmount: 5
 --- !u!4 &1949141371641418393 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7780543704888675725, guid: ae4d8a84ecd9f254da6c7b05893fc84e, type: 3}
@@ -470,10 +503,5 @@ Transform:
 --- !u!198 &1949141372127808077 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 7780543705106928985, guid: ae4d8a84ecd9f254da6c7b05893fc84e, type: 3}
-  m_PrefabInstance: {fileID: 8139894067069640468}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1949141372258383666 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7780543704439498790, guid: ae4d8a84ecd9f254da6c7b05893fc84e, type: 3}
   m_PrefabInstance: {fileID: 8139894067069640468}
   m_PrefabAsset: {fileID: 0}

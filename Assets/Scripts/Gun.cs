@@ -12,12 +12,12 @@ public class Gun : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] Camera cam;
-    [SerializeField] Animator animator;
     [SerializeField] Transform bulletSpawnPos;
 
     [Header("Effects")]
     [SerializeField] ParticleSystem gunflash;
     [SerializeField] ParticleSystem bulletImpact;
+    [SerializeField] GunRecoil gunRecoil;
 
     [Header("BulletTrail")]
     [SerializeField] float timeActive = 1;
@@ -28,8 +28,8 @@ public class Gun : MonoBehaviour
         timeBetweenShoots += Time.deltaTime;
         if (Input.GetButton("Fire1") && timeBetweenShoots >= firerate)
         {
-            animator.SetTrigger("ShootsFired");
             gunflash.Play();
+            gunRecoil.Recoil();
 
             ShootLogic();
             timeBetweenShoots = 0;
