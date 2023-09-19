@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
+    [Header("Components")]
     [SerializeField] GameObject camHolder;
     [SerializeField] GameObject oriention;
     float pitch;
 
+    [Header("Stats")]
     [SerializeField] float sensitivity;
 
     // Update is called once per frame
