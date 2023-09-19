@@ -45,7 +45,6 @@ public class GunController : MonoBehaviour
             {
                 target.TakeDamage(damage);
             }
-
         }
     }
     //Handle bullet trails
