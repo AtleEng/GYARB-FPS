@@ -177,7 +177,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7780543704888675725}
-  - component: {fileID: 7780543704439498791}
+  - component: {fileID: 1859809604946426646}
   - component: {fileID: 7780543704439498790}
   m_Layer: 0
   m_Name: Gun
@@ -206,7 +206,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7780543704439498791
+--- !u!114 &1859809604946426646
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -215,17 +215,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 7780543704888840621}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a3b118f2cf457148bb8758a20e131e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9dc9d99aa528a9a40ad2e4ff43cb232d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
   firerate: 0.1
   cam: {fileID: 0}
-  bulletSpawnPos: {fileID: 7780543705320867451}
-  gunflash: {fileID: 7780543705106928985}
-  bulletImpact: {fileID: 1887185018281359612, guid: 66b5880b0440fc54aaefd03948a180de, type: 3}
-  animator: {fileID: 7780543704439498790}
-  bulletTrail: {fileID: 5863006497798012582, guid: 20af144d4859eb84da8576c5309adfa4, type: 3}
+  bulletSpawnPos: {fileID: 0}
+  gunflash: {fileID: 0}
+  bulletImpact: {fileID: 0}
+  animator: {fileID: 0}
+  bulletTrail: {fileID: 0}
 --- !u!95 &7780543704439498790
 Animator:
   serializedVersion: 5
@@ -421,10 +421,5 @@ PrefabInstance:
 --- !u!4 &7780543705106928983 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3256019412733093549, guid: 5daaff8f34c51c64583ec4e27f6c8847, type: 3}
-  m_PrefabInstance: {fileID: 5104195902423675898}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &7780543705106928985 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 3256019412733093539, guid: 5daaff8f34c51c64583ec4e27f6c8847, type: 3}
   m_PrefabInstance: {fileID: 5104195902423675898}
   m_PrefabAsset: {fileID: 0}

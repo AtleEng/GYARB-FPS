@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TargetComponent : MonoBehaviour
+public class Target : MonoBehaviour
 {
     [SerializeField] public float hp = 50f;
     public void TakeDamage(float amountdamage)
