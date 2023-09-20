@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class ScopeScript : MonoBehaviour
 {
-       
-    [SerializeField]float scope;
+
+    [SerializeField] float scope;
     float normalFov;
+    [SerializeField] GameObject sniperScope;
     Camera mycamera;
     void Start()
     {
@@ -19,10 +20,12 @@ public class ScopeScript : MonoBehaviour
         if (Input.GetButton("Fire2"))
         {
             mycamera.fieldOfView = scope;
+            sniperScope.SetActive(true);
         }
         else
         {
             mycamera.fieldOfView = normalFov;
+            sniperScope.SetActive(false);
         }
 
     }

@@ -80,12 +80,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dc9d99aa528a9a40ad2e4ff43cb232d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  firerate: 0.15
-  burstSpeed: 0
-  bulletSpread: 0.05
+  damage: 500
+  firerate: 0.05
+  burstSpeed: 1
+  bulletSpread: 0
   amountOfBullets: 1
-  accuracyCooldown: 0.5
+  accuracyCooldown: 0
   bulletSpawnPos: {fileID: 2424932289783268891}
   gunflash: {fileID: 2424932290131498297}
   bulletImpact: {fileID: 1887185018281359612, guid: 66b5880b0440fc54aaefd03948a180de, type: 3}
@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scope: 30
+  sniperScope: {fileID: 0}
 --- !u!1 &5366513541371183657
 GameObject:
   m_ObjectHideFlags: 0
