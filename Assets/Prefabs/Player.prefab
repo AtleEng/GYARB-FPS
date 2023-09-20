@@ -491,7 +491,7 @@ MonoBehaviour:
   camTransform: {fileID: 1949141371516835377}
   recoilX: -0.2
   recoilY: 0.2
-  recoilZ: 5
+  recoilZ: 1
   kickBackZ: 0.2
   snappiness: 3
   returnAmount: 5
