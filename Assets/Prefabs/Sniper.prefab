@@ -80,9 +80,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dc9d99aa528a9a40ad2e4ff43cb232d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 500
-  firerate: 0.05
-  burstSpeed: 1
+  damage: 100
+  firerate: 1
+  burstSpeed: 0
   bulletSpread: 0
   amountOfBullets: 1
   accuracyCooldown: 0
@@ -512,11 +512,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3256019412733093549, guid: 5daaff8f34c51c64583ec4e27f6c8847, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.014
+      value: 0.0028
       objectReference: {fileID: 0}
     - target: {fileID: 3256019412733093549, guid: 5daaff8f34c51c64583ec4e27f6c8847, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0328
+      value: 0.0811
       objectReference: {fileID: 0}
     - target: {fileID: 3256019412733093549, guid: 5daaff8f34c51c64583ec4e27f6c8847, type: 3}
       propertyPath: m_LocalRotation.w
