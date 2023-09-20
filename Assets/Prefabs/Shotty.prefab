@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  firerate: 0.4
+  firerate: 0.8
   burstSpeed: 0
   bulletSpread: 0.2
   amountOfBullets: 9
