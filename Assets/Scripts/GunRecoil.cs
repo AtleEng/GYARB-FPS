@@ -5,7 +5,7 @@ using UnityEngine;
 public class GunRecoil : MonoBehaviour
 {
     Vector3 currentRot, currentPos, targetRot, targetPos, gunStartPos;
-    public Transform camTransform;
+    Transform camTransform;
 
     [SerializeField] float recoilX;
     [SerializeField] float recoilY;
@@ -16,6 +16,7 @@ public class GunRecoil : MonoBehaviour
     void Start()
     {
         gunStartPos = transform.localPosition;
+        camTransform = Camera.main.transform;
     }
     void Update()
     {

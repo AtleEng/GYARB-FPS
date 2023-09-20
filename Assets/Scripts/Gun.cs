@@ -18,7 +18,7 @@ public class Gun : MonoBehaviour
     float range = 1000f;
 
     [Header("Components")]
-    [SerializeField] Camera cam;
+    Camera cam;
     [SerializeField] Transform bulletSpawnPos;
 
     [Header("Effects")]
@@ -30,6 +30,10 @@ public class Gun : MonoBehaviour
     [SerializeField] float timeActive = 1;
     [SerializeField] TrailRenderer bulletTrail;
 
+    void Start()
+    {
+        cam = Camera.main;
+    }
     void Update()
     {
         timeBetweenShoots += Time.deltaTime;
