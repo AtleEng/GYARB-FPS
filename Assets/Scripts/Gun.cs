@@ -47,7 +47,6 @@ public class Gun : MonoBehaviour
             {
                 bulletOffset = Vector3.zero;
                 Debug.Log("No recoil");
-
             }
             else
             {
@@ -65,6 +64,8 @@ public class Gun : MonoBehaviour
     {
         for (int i = 0; i < amountOfBullets; i++)
         {
+            if (i >= 1) { bulletOffset = Random.insideUnitCircle * bulletSpread; }
+
             Vector3 raycastDirection = cam.transform.forward + bulletOffset;
 
             if (Physics.Raycast(cam.transform.position, raycastDirection, out RaycastHit hitinfo, range))
