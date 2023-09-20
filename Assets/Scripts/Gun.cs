@@ -8,6 +8,13 @@ public class Gun : MonoBehaviour
     [SerializeField] int damage = 10;
     [SerializeField] float firerate = 0.1f;
     float timeBetweenShoots;
+    [SerializeField] float burstSpeed;
+    [SerializeField] float bulletSpread;
+    Vector3 bulletOffset;
+    [SerializeField] int amountOfBullets;
+    [SerializeField] float accuracyCooldown;
+    float timeToCooldown;
+
     float range = 1000f;
 
     [Header("Components")]
@@ -26,32 +33,52 @@ public class Gun : MonoBehaviour
     void Update()
     {
         timeBetweenShoots += Time.deltaTime;
+        timeToCooldown += Time.deltaTime;
+
         if (Input.GetButton("Fire1") && timeBetweenShoots >= firerate)
         {
             gunflash.Play();
+
+            if (timeToCooldown >= accuracyCooldown)
+            {
+                bulletOffset = Vector3.zero;
+                Debug.Log("No recoil");
+
+            }
+            else
+            {
+                bulletOffset = Random.insideUnitCircle * bulletSpread;
+                Debug.Log("recoil");
+            }
+            timeToCooldown = 0;
             gunRecoil.Recoil();
 
-            ShootLogic();
+            StartCoroutine(Shoot());
             timeBetweenShoots = 0;
         }
     }
-
-    void ShootLogic()
+    IEnumerator Shoot()
     {
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hitinfo, range))
+        for (int i = 0; i < amountOfBullets; i++)
         {
-            Debug.Log(hitinfo.transform.name);
+            Vector3 raycastDirection = cam.transform.forward + bulletOffset;
 
-            TrailRenderer trail = Instantiate(bulletTrail, bulletSpawnPos.position, Quaternion.identity);
-
-            StartCoroutine(SpawnTrail(trail, hitinfo));
-
-            Target target = hitinfo.transform.GetComponent<Target>();
-
-            if (target != null)
+            if (Physics.Raycast(cam.transform.position, raycastDirection, out RaycastHit hitinfo, range))
             {
-                target.TakeDamage(damage);
+                Debug.Log(hitinfo.transform.name);
+
+                TrailRenderer trail = Instantiate(bulletTrail, bulletSpawnPos.position, Quaternion.identity);
+
+                StartCoroutine(SpawnTrail(trail, hitinfo));
+
+                Target target = hitinfo.transform.GetComponent<Target>();
+
+                if (target != null)
+                {
+                    target.TakeDamage(damage);
+                }
             }
+            yield return new WaitForSeconds(burstSpeed);
         }
     }
     //Handle bullet trails

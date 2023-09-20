@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1796666976224090638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7811059954875333079}
+  m_Layer: 0
+  m_Name: HandPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7811059954875333079
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796666976224090638}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.4, y: -0.4, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1949141371641418393}
+  m_Father: {fileID: 1949141371472854322}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1949141371472854323
 GameObject:
   m_ObjectHideFlags: 0
@@ -28,8 +60,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1949141371641418393}
   - {fileID: 1949141371516835377}
+  - {fileID: 7811059954875333079}
   m_Father: {fileID: 1949141373187937537}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -64,7 +96,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1949141371472854322}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 3.96, y: 0, z: 0}
 --- !u!20 &1949141371516835382
 Camera:
@@ -377,7 +409,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1949141371472854322}
+    m_TransformParent: {fileID: 7811059954875333079}
     m_Modifications:
     - target: {fileID: 1859809604946426646, guid: ae4d8a84ecd9f254da6c7b05893fc84e, type: 3}
       propertyPath: cam
@@ -421,15 +453,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7780543704888675725, guid: ae4d8a84ecd9f254da6c7b05893fc84e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7780543704888675725, guid: ae4d8a84ecd9f254da6c7b05893fc84e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7780543704888675725, guid: ae4d8a84ecd9f254da6c7b05893fc84e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7780543704888675725, guid: ae4d8a84ecd9f254da6c7b05893fc84e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -437,15 +469,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7780543704888675725, guid: ae4d8a84ecd9f254da6c7b05893fc84e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7780543704888675725, guid: ae4d8a84ecd9f254da6c7b05893fc84e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7780543704888675725, guid: ae4d8a84ecd9f254da6c7b05893fc84e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7780543704888675725, guid: ae4d8a84ecd9f254da6c7b05893fc84e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -492,7 +524,7 @@ MonoBehaviour:
   recoilX: -0.2
   recoilY: 0.2
   recoilZ: 1
-  kickBackZ: 0.2
+  kickBackZ: 0.3
   snappiness: 3
   returnAmount: 5
 --- !u!4 &1949141371641418393 stripped
