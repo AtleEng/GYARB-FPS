@@ -45,9 +45,6 @@ public class Gun : MonoBehaviour
 
         if (Input.GetButton("Fire1") && timeBetweenShoots >= firerate)
         {
-            gunflash.Play();
-            gunSound.Play();
-
             if (timeToCooldown >= accuracyCooldown)
             {
                 bulletOffset = Vector3.zero;
@@ -68,6 +65,12 @@ public class Gun : MonoBehaviour
         for (int i = 0; i < amountOfBullets; i++)
         {
             if (i >= 1) { bulletOffset = Random.insideUnitCircle * bulletSpread; }
+
+            if (burstSpeed > 0 || i == 1)
+            {
+                gunflash.Play();
+                gunSound.Play();
+            }
 
             Vector3 raycastDirection = cam.transform.forward + bulletOffset;
 
