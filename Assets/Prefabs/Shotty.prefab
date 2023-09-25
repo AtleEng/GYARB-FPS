@@ -225,7 +225,7 @@ MonoBehaviour:
   bulletSpread: 0.2
   amountOfBullets: 9
   accuracyCooldown: 0
-  range: 100
+  range: 300
   bulletSpawnPos: {fileID: 3780468865351725233}
   gunflash: {fileID: 3780468864600974227}
   bulletImpact: {fileID: 1887185018281359612, guid: 66b5880b0440fc54aaefd03948a180de, type: 3}
