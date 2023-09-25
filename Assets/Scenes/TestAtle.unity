@@ -381,6 +381,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shotty
       objectReference: {fileID: 0}
+    - target: {fileID: 5063094755203419612, guid: db7eb118f8348b4499cdcae098e1c205, type: 3}
+      propertyPath: range
+      value: 300
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db7eb118f8348b4499cdcae098e1c205, type: 3}
 --- !u!1001 &430136766
