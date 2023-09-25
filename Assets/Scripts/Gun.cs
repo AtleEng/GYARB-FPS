@@ -84,7 +84,6 @@ public class Gun : MonoBehaviour
                 if (target != null)
                 {
                     target.TakeDamage(damage);
-                    
                 }
             }
             else
