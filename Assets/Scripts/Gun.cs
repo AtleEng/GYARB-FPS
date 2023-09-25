@@ -26,6 +26,7 @@ public class Gun : MonoBehaviour
     [SerializeField] ParticleSystem gunflash;
     [SerializeField] ParticleSystem bulletImpact;
     [SerializeField] GunRecoil gunRecoil;
+    [SerializeField] float bulletVisualTravelTime;
 
     [Header("BulletTrail")]
     [SerializeField] AudioSource gunSound;
@@ -45,8 +46,8 @@ public class Gun : MonoBehaviour
 
         if (Input.GetButton("Fire1") && timeBetweenShoots >= firerate)
         {
-            gunflash.Play();
-            gunSound.Play();
+            if (gunflash != null) { gunflash.Play(); }
+            if (gunSound != null) { gunSound.Play(); }
 
             if (timeToCooldown >= accuracyCooldown)
             {
@@ -103,8 +104,8 @@ public class Gun : MonoBehaviour
 
         while (time < timeActive)
         {
-            trail.transform.position = Vector3.Lerp(startPos, endPos, time);
-            time += Time.deltaTime / trail.time;
+            trail.transform.position = Vector3.MoveTowards(startPos, endPos, bulletVisualTravelTime);
+            time += Time.deltaTime;
 
             yield return null;
         }
