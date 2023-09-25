@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    #region varibles
+    #region Stats
     [Header("Gun stats")]
     [SerializeField] int damage = 10;
     [SerializeField] float firerate = 0.1f;
@@ -29,7 +31,7 @@ public class Gun : MonoBehaviour
     [Header("BulletTrail")]
     [SerializeField] float timeActive = 1;
     [SerializeField] TrailRenderer bulletTrail;
-
+    #endregion
     void Start()
     {
         cam = Camera.main;
