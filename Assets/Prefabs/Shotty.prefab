@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dc9d99aa528a9a40ad2e4ff43cb232d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 30
   firerate: 0.8
   burstSpeed: 0
   bulletSpread: 0.2

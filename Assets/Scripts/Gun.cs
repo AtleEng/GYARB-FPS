@@ -7,31 +7,17 @@ public class Gun : MonoBehaviour
     #region varibles
     #region Stats
     [Header("Gun stats")]
-
-    [Tooltip("Damage of each bullet")]
     [SerializeField] int damage = 10;
-
-    [Tooltip("The time between attacks")]
     [SerializeField] float firerate = 0.1f;
     float timeBetweenShoots;
-
-    [Tooltip("If you have more then 1 bullet per attack, this add timedelay between them")]
     [SerializeField] float burstSpeed;
-
-    [Tooltip("Spread in degrees, first shoot is fully accuret")]
     [SerializeField] float bulletSpread;
     Vector3 bulletOffset;
-
-    [Tooltip("Spread in degrees, first shoot is fully accurate")]
     [SerializeField] int amountOfBullets;
-
-    [Tooltip("Time until the first shoot is accuret")]
     [SerializeField] float accuracyCooldown;
     float timeToCooldown;
 
     float range = 1000f;
-
-    #endregion
 
     [Header("Components")]
     Camera cam;
