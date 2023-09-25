@@ -105,7 +105,6 @@ public class Gun : MonoBehaviour
             yield return null;
         }
         trail.transform.position = endPos;
-        //Instantiate(bulletImpact, hit.point, Quaternion.LookRotation(hit.point));
 
         Destroy(trail.gameObject, trail.time);
     }
