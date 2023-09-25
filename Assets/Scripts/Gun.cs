@@ -28,6 +28,9 @@ public class Gun : MonoBehaviour
     [SerializeField] GunRecoil gunRecoil;
 
     [Header("BulletTrail")]
+    [SerializeField] AudioSource gunSound;
+
+    [Header("BulletTrail")]
     [SerializeField] float timeActive = 1;
     [SerializeField] TrailRenderer bulletTrail;
     #endregion
@@ -43,6 +46,7 @@ public class Gun : MonoBehaviour
         if (Input.GetButton("Fire1") && timeBetweenShoots >= firerate)
         {
             gunflash.Play();
+            gunSound.Play();
 
             if (timeToCooldown >= accuracyCooldown)
             {
