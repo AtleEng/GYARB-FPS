@@ -228,7 +228,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6240223290639562508}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 13, y: 10, z: 7}
   m_ConstrainProportionsScale: 0
@@ -257,10 +257,12 @@ MonoBehaviour:
   bulletSpread: 0.05
   amountOfBullets: 1
   accuracyCooldown: 0.5
+  range: 100
   bulletSpawnPos: {fileID: 6240223291079975130}
   gunflash: {fileID: 6240223290723496952}
   bulletImpact: {fileID: 1887185018281359612, guid: 66b5880b0440fc54aaefd03948a180de, type: 3}
   gunRecoil: {fileID: 2769446054974214626}
+  gunSound: {fileID: 266356437131431079}
   timeActive: 1
   bulletTrail: {fileID: 5863006497798012582, guid: 20af144d4859eb84da8576c5309adfa4, type: 3}
 --- !u!114 &2769446054974214626
@@ -291,7 +293,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: e0409001d8b73b646b460599fe861a66, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
