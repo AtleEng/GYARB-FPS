@@ -80,7 +80,7 @@ public class Gun : MonoBehaviour
                 StartCoroutine(SpawnTrail(trail, hitinfo.point));
 
                 Target target = hitinfo.transform.GetComponent<Target>();
-
+                //Hit a target
                 if (target != null)
                 {
                     target.TakeDamage(damage);
