@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    #region varibles
     #region Stats
     [Header("Gun stats")]
     [SerializeField] int damage = 10;
@@ -18,7 +17,8 @@ public class Gun : MonoBehaviour
     float timeToCooldown;
 
     float range = 1000f;
-
+    #endregion
+    #region varibles
     [Header("Components")]
     Camera cam;
     [SerializeField] Transform bulletSpawnPos;
