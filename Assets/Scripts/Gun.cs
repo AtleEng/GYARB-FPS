@@ -15,8 +15,7 @@ public class Gun : MonoBehaviour
     [SerializeField] int amountOfBullets;
     [SerializeField] float accuracyCooldown;
     float timeToCooldown;
-
-    float range = 1000f;
+    [SerializeField] float range = 100f;
     #endregion
     #region varibles
     [Header("Components")]
@@ -48,12 +47,10 @@ public class Gun : MonoBehaviour
             if (timeToCooldown >= accuracyCooldown)
             {
                 bulletOffset = Vector3.zero;
-                Debug.Log("No recoil");
             }
             else
             {
                 bulletOffset = Random.insideUnitCircle * bulletSpread;
-                Debug.Log("recoil");
             }
             timeToCooldown = 0;
             gunRecoil.Recoil();
@@ -76,7 +73,7 @@ public class Gun : MonoBehaviour
 
                 TrailRenderer trail = Instantiate(bulletTrail, bulletSpawnPos.position, Quaternion.identity);
 
-                StartCoroutine(SpawnTrail(trail, hitinfo));
+                StartCoroutine(SpawnTrail(trail, hitinfo.point));
 
                 Target target = hitinfo.transform.GetComponent<Target>();
 
@@ -85,23 +82,29 @@ public class Gun : MonoBehaviour
                     target.TakeDamage(damage);
                 }
             }
+            else
+            {
+                TrailRenderer trail = Instantiate(bulletTrail, bulletSpawnPos.position, Quaternion.identity);
+
+                StartCoroutine(SpawnTrail(trail, bulletSpawnPos.position + raycastDirection * range));
+            }
             yield return new WaitForSeconds(burstSpeed);
         }
     }
     //Handle bullet trails
-    IEnumerator SpawnTrail(TrailRenderer trail, RaycastHit hit)
+    IEnumerator SpawnTrail(TrailRenderer trail, Vector3 endPos)
     {
         float time = 0;
         Vector3 startPos = trail.transform.position;
 
         while (time < timeActive)
         {
-            trail.transform.position = Vector3.Lerp(startPos, hit.point, time);
+            trail.transform.position = Vector3.Lerp(startPos, endPos, time);
             time += Time.deltaTime / trail.time;
 
             yield return null;
         }
-        trail.transform.position = hit.point;
+        trail.transform.position = endPos;
         //Instantiate(bulletImpact, hit.point, Quaternion.LookRotation(hit.point));
 
         Destroy(trail.gameObject, trail.time);
