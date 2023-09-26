@@ -22,9 +22,13 @@ public class Projectile : MonoBehaviour, IWeaponType
     [System.Obsolete]
     public void Attack(Vector3 shootingDir)
     {
-
         GameObject g = Instantiate(projectile, bulletSpawnPos.position, Quaternion.identity);
         g.transform.forward = shootingDir;
+
+        ProjectileScript pS = g.GetComponent<ProjectileScript>();
+
+        pS.damage = damage;
+        pS.speed = speed;
     }
 
 }
