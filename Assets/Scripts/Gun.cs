@@ -45,26 +45,26 @@ public class Gun : MonoBehaviour
 
         if (Input.GetButton("Fire1") && timeBetweenShoots >= firerate)
         {
-            if (timeToCooldown >= accuracyCooldown)
-            {
-                bulletOffset = Vector3.zero;
-            }
-            else
-            {
-                bulletOffset = Random.insideUnitCircle * bulletSpread;
-            }
-            timeToCooldown = 0;
             gunRecoil.Recoil();
 
             StartCoroutine(Shoot());
             timeBetweenShoots = 0;
+            timeToCooldown = 0;
         }
     }
     IEnumerator Shoot()
     {
         for (int i = 0; i < amountOfBullets; i++)
         {
-            if (i >= 1) { bulletOffset = Random.insideUnitCircle * bulletSpread; }
+            if (timeToCooldown >= accuracyCooldown)
+            {
+                bulletOffset = Vector3.zero;
+                timeToCooldown = 0;
+            }
+            else
+            {
+                bulletOffset = Random.insideUnitCircle * bulletSpread;
+            }
 
             if (burstSpeed > 0 || i == 1)
             {

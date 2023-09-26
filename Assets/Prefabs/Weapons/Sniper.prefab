@@ -86,7 +86,7 @@ MonoBehaviour:
   burstSpeed: 0.1
   bulletSpread: 0
   amountOfBullets: 1
-  accuracyCooldown: 0
+  accuracyCooldown: 0.1
   range: 100
   bulletSpawnPos: {fileID: 2424932289783268891}
   gunflash: {fileID: 2424932290131498297}
