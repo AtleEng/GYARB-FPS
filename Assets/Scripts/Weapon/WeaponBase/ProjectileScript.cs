@@ -7,22 +7,41 @@ public class ProjectileScript : MonoBehaviour
 {
     [HideInInspector] public int damage;
     [HideInInspector] public float speed;
+    [HideInInspector] public float radius;
+
+    [SerializeField] LayerMask layerMask;
+    [SerializeField] float force;
 
     [SerializeField] GameObject kaboomEffect;
 
     Rigidbody rb;
-    private void Start()
+
+    public void StartProjectile()
     {
         rb = GetComponent<Rigidbody>();
-    }
-    private void FixedUpdate()
-    {
-        rb.velocity += transform.forward * speed;
+        rb.velocity = transform.forward * speed;
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        OnExplode();
+
         Instantiate(kaboomEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
+    }
+
+    void OnExplode()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, radius, layerMask);
+
+        foreach (Collider collider in colliders)
+        {
+            if (collider.gameObject.TryGetComponent<Rigidbody>(out Rigidbody rb))
+            {
+                rb.drag = 0;
+                rb.AddExplosionForce(force, transform.position, radius);
+            }
+        }
+
     }
 }

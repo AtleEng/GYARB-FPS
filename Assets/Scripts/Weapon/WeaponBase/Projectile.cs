@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour, IWeaponType
     [SerializeField] GameObject projectile;
     [SerializeField] int damage;
     [SerializeField] float speed;
+    [SerializeField] float radius;
 
     Camera cam;
 
@@ -29,6 +30,9 @@ public class Projectile : MonoBehaviour, IWeaponType
 
         pS.damage = damage;
         pS.speed = speed;
+        pS.radius = radius;
+
+        pS.StartProjectile();
     }
 
 }

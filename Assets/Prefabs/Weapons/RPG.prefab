@@ -81,11 +81,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1a1463949d405a4ca93ff684af4a868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firerate: 1
-  burstSpeed: 1
+  firerate: 0.85
+  burstSpeed: 0.1
   bulletSpread: 1
   amountOfBullets: 1
-  accuracyCooldown: 1
+  accuracyCooldown: 0.5
   gunflash: {fileID: 457175402302045613}
   gunSound: {fileID: 2882059167378923293}
   bulletImpact: {fileID: 1887185018281359612, guid: 66b5880b0440fc54aaefd03948a180de, type: 3}
@@ -105,7 +105,8 @@ MonoBehaviour:
   bulletSpawnPos: {fileID: 457175401979178639}
   projectile: {fileID: 6017190488895593319, guid: f3b032c935b9b364f8386c44179a1197, type: 3}
   damage: 10
-  speed: 5
+  speed: 15
+  radius: 3
 --- !u!114 &8551913608620761015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,11 +120,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recoilX: -0.2
-  recoilY: 0.2
-  recoilZ: 1
-  kickBackZ: 0.3
-  snappiness: 3
-  returnAmount: 5
+  recoilY: 0.5
+  recoilZ: 5
+  kickBackZ: 0.5
+  snappiness: 10
+  returnAmount: 10
 --- !u!82 &2882059167378923293
 AudioSource:
   m_ObjectHideFlags: 0
