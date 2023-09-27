@@ -106,7 +106,7 @@ MonoBehaviour:
   projectile: {fileID: 6017190488895593319, guid: f3b032c935b9b364f8386c44179a1197, type: 3}
   damage: 10
   speed: 15
-  radius: 3
+  radius: 4
 --- !u!114 &8551913608620761015
 MonoBehaviour:
   m_ObjectHideFlags: 0

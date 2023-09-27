@@ -5,9 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class ProjectileScript : MonoBehaviour
 {
-    [HideInInspector] public int damage;
-    [HideInInspector] public float speed;
-    [HideInInspector] public float radius;
+    public int damage;
+    public float speed;
+    public float radius;
+
+    public float timeToDestroy;
 
     [SerializeField] LayerMask layerMask;
     [SerializeField] float force;
@@ -20,6 +22,7 @@ public class ProjectileScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.velocity = transform.forward * speed;
+        Destroy(gameObject, timeToDestroy);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -36,12 +39,18 @@ public class ProjectileScript : MonoBehaviour
 
         foreach (Collider collider in colliders)
         {
-            if (collider.gameObject.TryGetComponent<Rigidbody>(out Rigidbody rb))
+            if (collider.gameObject.TryGetComponent(out Rigidbody rb))
             {
                 rb.drag = 0;
                 rb.AddExplosionForce(force, transform.position, radius);
             }
         }
 
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 }
