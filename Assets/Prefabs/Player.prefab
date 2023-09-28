@@ -444,6 +444,7 @@ GameObject:
   - component: {fileID: 5086682055983075171}
   - component: {fileID: 5679330194286986667}
   - component: {fileID: 3804136136056829826}
+  - component: {fileID: 58670164}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -534,13 +535,31 @@ Rigidbody:
   m_GameObject: {fileID: 5679330194286986669}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &58670164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5679330194286986669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddca110a97615934aae529534f265e57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+  - {fileID: 6061944418071451320, guid: c9fdd53daaa5e814ebaba1e9d8a7ded9, type: 3}
+  - {fileID: 2912855000431399993, guid: db7eb118f8348b4499cdcae098e1c205, type: 3}
+  - {fileID: 5574365725668207369, guid: 86cbf72d83280ed409f44fc128aeafa8, type: 3}
+  - {fileID: 457175402352458073, guid: 938b71aa8e1d89e468538e6e79ad3613, type: 3}
+  handPos: {fileID: 4160130732105840118}
 --- !u!1 &5679330195558756626
 GameObject:
   m_ObjectHideFlags: 0
