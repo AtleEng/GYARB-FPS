@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.AssetImporters;
 using UnityEngine;
 
@@ -7,9 +8,9 @@ public class Grappling : MonoBehaviour, IWeaponType
 {
     [SerializeField] GameObject player;
 
-    [SerializeField] GameObject firepoint;
-    private LineRenderer LineRender;
-    Vector3 Gpoint;
+    [SerializeField] Transform firepoint;
+    LineRenderer lineRender;
+    Vector3 hitPoint;
     Camera cam;
     [SerializeField] LayerMask WhatG;
     private SpringJoint joint;
@@ -19,29 +20,40 @@ public class Grappling : MonoBehaviour, IWeaponType
     void Start()
     {
         cam = Camera.main;
+        lineRender = GetComponent<LineRenderer>();
 
+    }
+
+    void Update()
+    {
+        Drawrope();
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            GrappleStop();
+        }
     }
 
     public void Attack(Vector3 shootingDir)
     {
+    
         if (hasStartedGrappling == false)
         {
             Grapplestart(shootingDir);
             hasStartedGrappling = true;
         }
-
     }
 
     void Grapplestart(Vector3 shottingDir)
     {
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, shottingDir, out hit, maxDistance, WhatG)) ;
-        Gpoint = hit.point;
+        hitPoint = hit.point;
         joint = player.AddComponent<SpringJoint>();
         joint.autoConfigureConnectedAnchor = false;
-        joint.connectedAnchor = Gpoint;
+        joint.connectedAnchor = hitPoint;
 
-        float distanceFromPoint = Vector3.Distance(player.transform.position, Gpoint);
+        float distanceFromPoint = Vector3.Distance(player.transform.position, hitPoint);
 
         joint.maxDistance = distanceFromPoint * 0.8f;
         joint.minDistance = distanceFromPoint * 0.25f;
@@ -51,9 +63,16 @@ public class Grappling : MonoBehaviour, IWeaponType
         joint.massScale = 4.5f;
     }
 
-    void DrawGrapple()
-     { 
-       LineRender.SetPosition(0,firepoint.transform.position);
 
-     }
+    void Drawrope()
+    {
+        lineRender.SetPosition(0, firepoint.position);
+        lineRender.SetPosition(1, hitPoint);
+
+    }
+
+    void GrappleStop()
+    {
+
+    }
 }
