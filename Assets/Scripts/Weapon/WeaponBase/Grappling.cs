@@ -52,8 +52,9 @@ public class Grappling : MonoBehaviour, IWeaponType
     }
 
     void DrawGrapple()
-     { 
-       LineRender.SetPosition(0,firepoint.transform.position);
+    {
+        LineRender.SetPosition(0, firepoint.transform.position);
 
-     }
+    }
+    public void AttackStop() { }
 }

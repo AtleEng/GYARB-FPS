@@ -81,6 +81,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1a1463949d405a4ca93ff684af4a868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapon: {fileID: 457175402352458073}
+  isAtomatic: 1
   firerate: 0.85
   burstSpeed: 0.1
   bulletSpread: 1

@@ -42,6 +42,8 @@ public class Hitscan : MonoBehaviour, IWeaponType
         }
     }
 
+    public void AttackStop() { }
+
     //Handle bullet trails
     IEnumerator SpawnTrail(TrailRenderer trail, Vector3 endPos)
     {
