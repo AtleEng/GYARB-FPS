@@ -521,7 +521,7 @@ MonoBehaviour:
   burstSpeed: 0.1
   bulletSpread: 0.3
   amountOfBullets: 1
-  accuracyCooldown: 2
+  accuracyCooldown: 1
   gunflash: {fileID: 5574365725181685757}
   gunSound: {fileID: 7852930874471615821}
   bulletImpact: {fileID: 1887185018281359612, guid: 66b5880b0440fc54aaefd03948a180de, type: 3}
