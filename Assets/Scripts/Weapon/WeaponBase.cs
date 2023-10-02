@@ -11,7 +11,7 @@ public class WeaponBase : MonoBehaviour
     [SerializeField] bool isAtomatic = true;
     [SerializeField] float firerate = 0.1f;
     float timeBetweenShoots;
-    [SerializeField] float burstSpeed;
+
     [SerializeField] float bulletSpread;
     Vector3 bulletOffset;
     [SerializeField] int amountOfBullets;
@@ -44,26 +44,23 @@ public class WeaponBase : MonoBehaviour
         {
             if (Input.GetButton("Fire1") && isAtomatic)
             {
-                StartCoroutine(Shoot());
+                Shoot();
                 timeBetweenShoots = 0;
                 timeToCooldown = 0;
             }
             else if (Input.GetButtonDown("Fire1"))
             {
-                StartCoroutine(Shoot());
+                Shoot();
                 timeBetweenShoots = 0;
                 timeToCooldown = 0;
             }
         }
-        if (Input.GetButtonUp("Fire1"))
-        {
-            weaponType.AttackStop();
-        }
     }
-    IEnumerator Shoot()
+    void Shoot()
     {
         gunRecoil.Recoil();
-
+        gunflash.Play();
+        gunSound.Play();
         for (int i = 0; i < amountOfBullets; i++)
         {
             if (timeToCooldown >= accuracyCooldown)
@@ -75,17 +72,8 @@ public class WeaponBase : MonoBehaviour
             {
                 bulletOffset = Random.insideUnitCircle * bulletSpread;
             }
-
-            if (burstSpeed > 0 || i == 1)
-            {
-                gunflash.Play();
-                gunSound.Play();
-            }
-
             Vector3 shootingDirection = cam.transform.forward + bulletOffset;
             weaponType.Attack(shootingDirection);
-
-            yield return new WaitForSeconds(burstSpeed);
         }
     }
 }
@@ -93,5 +81,4 @@ public class WeaponBase : MonoBehaviour
 public interface IWeaponType
 {
     void Attack(Vector3 shootingDir);
-    void AttackStop();
 }

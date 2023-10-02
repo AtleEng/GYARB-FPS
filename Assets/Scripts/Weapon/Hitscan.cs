@@ -10,7 +10,7 @@ public class Hitscan : MonoBehaviour, IWeaponType
     Camera cam;
 
     [Header("BulletTrail")]
-    [SerializeField] float timeActive = 1;
+    [SerializeField] float trailSpeed = 1;
     [SerializeField] TrailRenderer bulletTrail;
     void Start()
     {
@@ -25,38 +25,37 @@ public class Hitscan : MonoBehaviour, IWeaponType
 
             TrailRenderer trail = Instantiate(bulletTrail, bulletSpawnPos.position, Quaternion.identity);
 
-            StartCoroutine(SpawnTrail(trail, hitinfo.point));
+            StartCoroutine(SpawnTrail(trail, hitinfo.point, trailSpeed));
 
-            Target target = hitinfo.transform.GetComponent<Target>();
+            HitPoint hitpoint = hitinfo.transform.GetComponent<HitPoint>();
             //Hit a target
-            if (target != null)
+            if (hitpoint != null)
             {
-                target.TakeDamage(damage);
+                hitpoint.OnHit(damage);
             }
         }
         else
         {
             TrailRenderer trail = Instantiate(bulletTrail, bulletSpawnPos.position, Quaternion.identity);
 
-            StartCoroutine(SpawnTrail(trail, bulletSpawnPos.position + shootingDir * range));
+            StartCoroutine(SpawnTrail(trail, bulletSpawnPos.position + shootingDir * range, trailSpeed));
         }
     }
 
-    public void AttackStop() { }
-
     //Handle bullet trails
-    IEnumerator SpawnTrail(TrailRenderer trail, Vector3 endPos)
+    IEnumerator SpawnTrail(TrailRenderer trail, Vector3 endPos, float constantSpeed)
     {
-        float time = 0;
         Vector3 startPos = trail.transform.position;
+        Vector3 direction = (endPos - startPos).normalized; // Calculate the direction vector.
 
-        while (time < timeActive)
+        while (Vector3.Distance(trail.transform.position, endPos) > 0.01f)
         {
-            trail.transform.position = Vector3.Lerp(startPos, endPos, time);
-            time += Time.deltaTime / trail.time;
+            float distanceThisFrame = constantSpeed * Time.deltaTime;
+            trail.transform.position += direction * distanceThisFrame;
 
             yield return null;
         }
+
         trail.transform.position = endPos;
 
         Destroy(trail.gameObject, trail.time);

@@ -10,6 +10,7 @@ public class Target : MonoBehaviour
     public void TakeDamage(int amountdamage)
     {
         hp -= amountdamage;
+        print(hp);
         if (hp <= 0)
         {
             Die();

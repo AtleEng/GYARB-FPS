@@ -19,8 +19,6 @@ public class Projectile : MonoBehaviour, IWeaponType
     {
         cam = Camera.main;
     }
-
-    [System.Obsolete]
     public void Attack(Vector3 shootingDir)
     {
         GameObject g = Instantiate(projectile, bulletSpawnPos.position, Quaternion.identity);
@@ -34,5 +32,4 @@ public class Projectile : MonoBehaviour, IWeaponType
 
         pS.StartProjectile();
     }
-    public void AttackStop() { }
 }

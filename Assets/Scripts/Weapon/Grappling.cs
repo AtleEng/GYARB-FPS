@@ -75,5 +75,4 @@ public class Grappling : MonoBehaviour, IWeaponType
     {
 
     }
-    public void AttackStop() { }
 }
