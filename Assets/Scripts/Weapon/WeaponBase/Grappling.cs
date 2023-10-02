@@ -36,7 +36,7 @@ public class Grappling : MonoBehaviour, IWeaponType
 
     public void Attack(Vector3 shootingDir)
     {
-    
+
         if (hasStartedGrappling == false)
         {
             Grapplestart(shootingDir);
@@ -75,4 +75,5 @@ public class Grappling : MonoBehaviour, IWeaponType
     {
 
     }
+    public void AttackStop() { }
 }
