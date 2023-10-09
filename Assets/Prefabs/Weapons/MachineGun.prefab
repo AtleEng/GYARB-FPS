@@ -119,8 +119,7 @@ MonoBehaviour:
   weapon: {fileID: 6061944418071451320}
   isAtomatic: 1
   firerate: 0.1
-  burstSpeed: 0.1
-  bulletSpread: 0.1
+  bulletSpread: 0.05
   amountOfBullets: 1
   accuracyCooldown: 0.6
   gunflash: {fileID: 6061944418356580940}
@@ -142,7 +141,7 @@ MonoBehaviour:
   range: 100
   damage: 10
   bulletSpawnPos: {fileID: 6061944417631060334}
-  timeActive: 1
+  trailSpeed: 100
   bulletTrail: {fileID: 5863006497798012582, guid: 20af144d4859eb84da8576c5309adfa4, type: 3}
 --- !u!114 &2654569418707136598
 MonoBehaviour:

@@ -148,7 +148,6 @@ MonoBehaviour:
   weapon: {fileID: 2912855000431399993}
   isAtomatic: 0
   firerate: 0.8
-  burstSpeed: 0
   bulletSpread: 0.15
   amountOfBullets: 9
   accuracyCooldown: 0.1
@@ -171,7 +170,7 @@ MonoBehaviour:
   range: 100
   damage: 10
   bulletSpawnPos: {fileID: 2912855000796316655}
-  timeActive: 1
+  trailSpeed: 100
   bulletTrail: {fileID: 5863006497798012582, guid: 20af144d4859eb84da8576c5309adfa4, type: 3}
 --- !u!114 &6384482175609729751
 MonoBehaviour:
@@ -188,7 +187,7 @@ MonoBehaviour:
   recoilX: 2
   recoilY: 2
   recoilZ: 2
-  kickBackZ: 2
+  kickBackZ: 1.5
   snappiness: 1
   returnAmount: 2
 --- !u!1 &2912855000796316652
