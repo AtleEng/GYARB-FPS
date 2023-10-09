@@ -21,17 +21,15 @@ public class Hitscan : MonoBehaviour, IWeaponType
     {
         if (Physics.Raycast(cam.transform.position, shootingDir, out RaycastHit hitinfo, range))
         {
-            Debug.Log(hitinfo.transform.name);
-
             TrailRenderer trail = Instantiate(bulletTrail, bulletSpawnPos.position, Quaternion.identity);
 
             StartCoroutine(SpawnTrail(trail, hitinfo.point, trailSpeed));
 
-            HitPoint hitpoint = hitinfo.transform.GetComponent<HitPoint>();
+            Target target = hitinfo.transform.GetComponent<Target>();
             //Hit a target
-            if (hitpoint != null)
+            if (target != null)
             {
-                hitpoint.OnHit(damage);
+                target.TakeDamage(damage);
             }
         }
         else
@@ -46,13 +44,11 @@ public class Hitscan : MonoBehaviour, IWeaponType
     IEnumerator SpawnTrail(TrailRenderer trail, Vector3 endPos, float constantSpeed)
     {
         Vector3 startPos = trail.transform.position;
-        Vector3 direction = (endPos - startPos).normalized; // Calculate the direction vector.
+        Vector3 direction = (endPos - startPos).normalized;
 
-        while (Vector3.Distance(trail.transform.position, endPos) > 0.01f)
+        while ((endPos - trail.transform.position).magnitude > 0.01f)
         {
-            float distanceThisFrame = constantSpeed * Time.deltaTime;
-            trail.transform.position += direction * distanceThisFrame;
-
+            trail.transform.position = Vector3.MoveTowards(trail.transform.position, endPos, Time.deltaTime * constantSpeed);
             yield return null;
         }
 
