@@ -68,9 +68,5 @@ public class Grappling : MonoBehaviour, IWeaponType
     {
         Destroy(joint);
     }
-<<<<<<< HEAD:Assets/Scripts/Weapon/WeaponBase/Grappling.cs
 
-    public void AttackStop() { }
-=======
->>>>>>> 4a5d1588c6d8ed5d92703bfd6888df25a81035c3:Assets/Scripts/Weapon/Grappling.cs
-}
+    }
