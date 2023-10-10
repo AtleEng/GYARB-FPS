@@ -26,8 +26,8 @@ public class Grappling : MonoBehaviour, IWeaponType
 
     public void Attack(Vector3 shootingDir)
     {
-          Grapplestart(shootingDir);
-          hasStartedGrappling = true;
+        Grapplestart(shootingDir);
+        hasStartedGrappling = true;
     }
     void Update()
     {
@@ -68,5 +68,4 @@ public class Grappling : MonoBehaviour, IWeaponType
     {
         Destroy(joint);
     }
-
-    }
+}

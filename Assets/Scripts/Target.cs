@@ -6,9 +6,10 @@ public class Target : MonoBehaviour
 {
     [SerializeField] int hp = 50;
     [SerializeField] float speed = 3.5f;
-
     [SerializeField] Vector3[] movePoints;
     int pointIndex;
+
+    
     public void TakeDamage(int amountdamage)
     {
         hp -= amountdamage;
@@ -26,7 +27,6 @@ public class Target : MonoBehaviour
 
     public void Update()
     {
-        //transform.position = new Vector3(-length + Mathf.PingPong(Time.time * speed, length * 2), transform.position.y, transform.position.z);
         if ((movePoints[pointIndex] - transform.position).magnitude < 0.01f)
         {
             pointIndex++;
