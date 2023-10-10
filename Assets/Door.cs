@@ -5,9 +5,19 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
 
-    [SerializeField] List<Target> target = new List<Target>();
+    [SerializeField] List<Target> targets = new List<Target>();
     void Update()
     {
-
+        
+ 
     }
-}
+
+    public void UpdateTargets(Target targetDestroy)
+    {
+        targets.Remove(targetDestroy);
+        if (targets.Count <= 0)
+        {
+          Destroy(gameObject);
+        } 
+    }
+}   
