@@ -68,9 +68,4 @@ public class Grappling : MonoBehaviour, IWeaponType
     {
         Destroy(joint);
     }
-<<<<<<< HEAD
 }
-=======
-
-    }
->>>>>>> e63dbd93afd2c82094539a57cde94ee3da100af8
