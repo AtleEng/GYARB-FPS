@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-  
-[SerializeField] List <Target> target = new List<Target>();
+
+    [SerializeField] List<Target> target = new List<Target>();
     void Update()
     {
-        
+
     }
 }
