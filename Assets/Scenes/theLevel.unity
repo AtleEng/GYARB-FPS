@@ -572,6 +572,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4160130732105840118, guid: 7ed589a940070bf4d80697a46714af92, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160130732105840118, guid: 7ed589a940070bf4d80697a46714af92, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160130732105840118, guid: 7ed589a940070bf4d80697a46714af92, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160130732105840118, guid: 7ed589a940070bf4d80697a46714af92, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160130732105840118, guid: 7ed589a940070bf4d80697a46714af92, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160130732105840118, guid: 7ed589a940070bf4d80697a46714af92, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160130732105840118, guid: 7ed589a940070bf4d80697a46714af92, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5679330194286986666, guid: 7ed589a940070bf4d80697a46714af92, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -619,6 +647,10 @@ PrefabInstance:
     - target: {fileID: 5679330194286986669, guid: 7ed589a940070bf4d80697a46714af92, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679330195643996695, guid: 7ed589a940070bf4d80697a46714af92, type: 3}
+      propertyPath: near clip plane
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ed589a940070bf4d80697a46714af92, type: 3}
