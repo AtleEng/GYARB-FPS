@@ -15,7 +15,7 @@ public class Timer : MonoBehaviour
         if (!isPaused)
         {
             timeElapsed += Time.deltaTime;
-            string s = timeElapsed.ToString().Substring(0, 4);
+            string s = timeElapsed.ToString("0.00");
 
             text.text = "Time: " + s;
         }
