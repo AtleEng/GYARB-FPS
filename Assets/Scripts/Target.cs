@@ -7,6 +7,9 @@ public class Target : MonoBehaviour
     [SerializeField] int hp = 50;
     [SerializeField] float speed = 3.5f;
     [SerializeField] Vector3[] movePoints;
+
+    [HideInInspector] public Door door;
+
     int pointIndex;
 
     public void TakeDamage(int amountdamage)
@@ -21,6 +24,8 @@ public class Target : MonoBehaviour
     void Die()
     {
         //lägg in cool particel effect här
+
+        door.UpdateTargets(this);
         Destroy(gameObject);
     }
     public void Update()
