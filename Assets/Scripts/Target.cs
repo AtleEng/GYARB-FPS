@@ -7,12 +7,23 @@ public class Target : MonoBehaviour
     [SerializeField] int hp = 50;
     [SerializeField] float speed = 3.5f;
     [SerializeField] Vector3[] movePoints;
+
+    [HideInInspector] public Door door;
+
     int pointIndex;
+
+    public void Start()
+    {
+        for (int i = 0; i < movePoints.Length; i++)
+        {
+            movePoints[i] += transform.position;
+        }
+    }
 
     public void TakeDamage(int amountdamage)
     {
         hp -= amountdamage;
-        print(hp + " damage dealt to: " + gameObject.name);
+        print($"{amountdamage} damage dealt to: {gameObject.name}");
         if (hp <= 0)
         {
             Die();
@@ -21,6 +32,8 @@ public class Target : MonoBehaviour
     void Die()
     {
         //lägg in cool particel effect här
+
+        door.UpdateTargets(this);
         Destroy(gameObject);
     }
     public void Update()

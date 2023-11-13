@@ -5,7 +5,7 @@ using UnityEngine;
 public class Hitscan : MonoBehaviour, IWeaponType
 {
     [SerializeField] float range = 100f;
-    [SerializeField] int damage = 10;
+    [SerializeField] int damage = 1;
     [SerializeField] Transform bulletSpawnPos;
     Camera cam;
 
