@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
+    [HideInInspector] public GameManager gameManager;
+
     [SerializeField] int hp = 50;
     [SerializeField] float speed = 3.5f;
     [SerializeField] Vector3[] movePoints;
-
-    [HideInInspector] public Door door;
 
     int pointIndex;
 
@@ -32,8 +32,7 @@ public class Target : MonoBehaviour
     void Die()
     {
         //lägg in cool particel effect här
-
-        door.UpdateTargets(this);
+        if (gameManager != null) { gameManager.TargetDestroyed(); }
         Destroy(gameObject);
     }
     public void Update()

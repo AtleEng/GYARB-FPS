@@ -8,6 +8,7 @@ public class PlayerCamera : MonoBehaviour
     [SerializeField] GameObject camHolder;
     [SerializeField] GameObject oriention;
     float pitch;
+    float yaw;
 
     [Header("Stats")]
     [SerializeField] float sensitivity;
@@ -18,11 +19,14 @@ public class PlayerCamera : MonoBehaviour
         Vector2 mouseDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
         pitch -= mouseDelta.y * sensitivity;
-        pitch = Mathf.Clamp(pitch, -90, 90);
+        pitch = Mathf.Clamp(pitch, -50, 20);
+
+        yaw += mouseDelta.x * sensitivity;
+        yaw = Mathf.Clamp(yaw, -140, -40);
 
         camHolder.transform.localEulerAngles = Vector3.right * pitch;
 
-        oriention.transform.Rotate(Vector3.up * mouseDelta.x * sensitivity);
+        oriention.transform.localEulerAngles = Vector3.up * yaw;
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Confined;

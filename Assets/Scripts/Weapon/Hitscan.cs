@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Hitscan : MonoBehaviour, IWeaponType
 {
+    [SerializeField] GameManager gameManager;
     [SerializeField] float range = 100f;
     [SerializeField] int damage = 1;
     [SerializeField] Transform bulletSpawnPos;
@@ -19,6 +20,8 @@ public class Hitscan : MonoBehaviour, IWeaponType
 
     public void Attack(Vector3 shootingDir)
     {
+        if (!gameManager.isPaused) { gameManager.shootsFired++; }
+
         if (Physics.Raycast(cam.transform.position, shootingDir, out RaycastHit hitinfo, range))
         {
             TrailRenderer trail = Instantiate(bulletTrail, bulletSpawnPos.position, Quaternion.identity);
@@ -29,6 +32,8 @@ public class Hitscan : MonoBehaviour, IWeaponType
             //Hit a target
             if (target != null)
             {
+                if (!gameManager.isPaused) { gameManager.hitShoots++; }
+
                 target.TakeDamage(damage);
             }
         }

@@ -9,10 +9,7 @@ public class Door : MonoBehaviour
 
   void Start()
   {
-    foreach (Target target in targets)
-    {
-      target.door = this;
-    }
+
   }
 
 
